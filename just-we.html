@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Just We</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+      #justWe{
+        width: 100%;
+        margin-top: 80px;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <canvas id="justWe" width="800px" height="800px" ></canvas>
+    <script src="three.js"></script>
+    <script type="text/javascript">
+      function init() {
+        //Render
+        renderer = new THREE.WebGLRenderer({
+          canvas: document.getElementById('justWe')
+        })
+
+        //Render background-color
+        renderer.setClearColor(0xffffff);
+
+        //Scene
+        scene = new THREE.Scene();
+
+        //Camera
+        camera = new THREE. OrthographicCamera(-10, 10, 10, -10, 1, 100);
+        camera.position.set(5, 5, 20);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+        scene.add(camera)
+
+
+        //body
+        bodyMaterial = new THREE.MeshPhongMaterial({
+          color: 0xca7368,
+          wireframe: true
+        });
+        bodyMesh = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, 8, 18, 3), bodyMaterial);
+
+        scene.add(bodyMesh);
+        
+        //head
+        headeMaterial = new THREE.MeshPhongMaterial({
+          color: 0xe0b996,
+          wireframe: true
+        });
+        headMesh = new THREE.Mesh(new THREE.SphereGeometry(1.9, 16, 8), headeMaterial);
+
+        headMesh.position.y = 4;
+        scene.add(headMesh);
+
+        
+        
+
+        //light
+        var light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(15, 10, 15);
+        scene.add(light);
+
+        // id= setInterval(draw, 20)
+
+        renderer.render(scene, camera)
+      }
+      // function draw() {
+      //   mesh.rotation.x = (mesh.rotation.x + 0.01) % (Math.PI *2)
+      //   renderer.render(scene, camera)
+      // }
+    </script>
+  </body>
+</html>
