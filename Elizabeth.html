@@ -67,21 +67,19 @@
         var plane = new THREE.Mesh(new THREE.PlaneGeometry(20, 20, 16, 16),
                     new THREE.MeshLambertMaterial({color: 0xffc107}));
         plane.rotation.x = -Math.PI / 2;
-        plane.position.y = -5.5;
+        plane.position.y = -4;
         scene.add(plane);
 
         //##body##
         bodyMaterial = new THREE.MeshLambertMaterial({
-          color: 0xffffff,
-          wireframe: true
+          color: 0xffffff
         });
         bodyMesh = new THREE.Mesh(new THREE.CylinderGeometry(4, 4, 8, 18, 3), bodyMaterial);
         scene.add(bodyMesh);
         
         //##head##
         headeMaterial = new THREE.MeshLambertMaterial({
-          color: 0xffffff,
-          wireframe: true
+          color: 0xffffff
         });
         headMesh = new THREE.Mesh(new THREE.SphereGeometry(4, 16, 8), headeMaterial);
         headMesh.position.y = 4;
@@ -89,8 +87,7 @@
 
         //##hands##
         var handMaterial = new THREE.MeshLambertMaterial({
-          color: 0xffffff,
-          wireframe: true
+          color: 0xffffff
         })
         leftMesh = new THREE.Mesh(new THREE.CylinderGeometry(1, 0.1, 3, 18, 3), handMaterial);
         leftMesh.position.y = 4;
